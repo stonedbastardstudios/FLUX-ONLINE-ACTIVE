@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ade2a08d143e7d4498aa7e6095eb83d0
+timeCreated: 1510520627
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Zelta-Six Demo
+  fontNames:
+  - Zelta-Six Demo
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6733f68634187214fb243e560d252b74, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

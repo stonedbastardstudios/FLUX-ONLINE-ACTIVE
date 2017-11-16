@@ -12,29 +12,21 @@ public class CharacterCustomization : MonoBehaviour {
     public DynamicCharacterAvatar avatar;
     public GameObject headPanel;
     public GameObject bodyPanel;
-    public GameObject hsc; //head settings scroll view content panel
-    public GameObject bsc;
-    public GameObject dnaSettingPrefab;
-         
-    // Use this for initialization
-    void Start () {
-     
-	}
-	
-	// Update is called once per frame
-	void Update () {
-       
-	}
-
-
+    public Dropdown mHairDrop;
+    public Dropdown fHairDrop;
+        
     #region Buttons
     public void MaleButton() {
-        avatar.ChangeRace("HumanMale");
-    }
+            avatar.ChangeRace("HumanMale");
+            fHairDrop.gameObject.SetActive(false);
+            mHairDrop.gameObject.SetActive(true);
+        }
 
     public void FemaleButton() {
-        avatar.ChangeRace("HumanFemale");
-    }
+            avatar.ChangeRace("HumanFemale");
+            mHairDrop.gameObject.SetActive(false);
+            fHairDrop.gameObject.SetActive(true);
+        }
 
     public void HeadButton() {
         if (!headPanel.activeSelf) {
