@@ -1125,7 +1125,7 @@ namespace UMA.Editors
 		private ProceduralPropertyEditor[] _properties;
         #endif
 		private ProceduralPropertyDescription[] _descriptions;
-		private int _selectedProperty = 0;
+		//private int _selectedProperty = 0;
 		private bool _foldout = true;
 
 		public bool Delete { get; private set; }
