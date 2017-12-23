@@ -21,7 +21,7 @@ namespace UMA.CharacterSystem
             Label.text = _DNAName;
         }
 
-        public void Initialize(string name, int index, UMADnaBase owner, DynamicCharacterAvatar avatar, float currentval) //Called by DNAPanel
+        public void Initialize(string name, int index, UMADnaBase owner, DynamicCharacterAvatar avatar, float currentval)
         {
             _DNAName = name;
             _Index = index;
@@ -37,7 +37,7 @@ namespace UMA.CharacterSystem
 
         public void ChangeValue(float value)
         {
-            _Owner.SetValue(_Index, value); //sets the UMADnaBase value for the dna passed in to initialise from DNAPanel 
+            _Owner.SetValue(_Index, value);
             _Avatar.ForceUpdate(true, false, false);
         }
     }

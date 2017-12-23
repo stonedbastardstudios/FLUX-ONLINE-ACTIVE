@@ -6,7 +6,7 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour {
 
     public GameObject settingsMenu;
-
+    public GameObject loginMenu;
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +20,14 @@ public class MenuManager : MonoBehaviour {
 
     public void CloseWindow() {
         settingsMenu.SetActive(false);
-
+        loginMenu.SetActive(false);
     }
 
-    public void OpenWindow()
+    public void LoginWindow() {
+        loginMenu.SetActive(true);
+    }
+
+    public void SettingsWindow()
     {
         settingsMenu.SetActive(true);
 

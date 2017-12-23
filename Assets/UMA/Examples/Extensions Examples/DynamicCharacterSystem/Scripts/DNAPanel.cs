@@ -7,7 +7,7 @@ namespace UMA.CharacterSystem
 	public class DNAPanel : MonoBehaviour
 	{
 		public List<string> Markers = new List<string>();
-		private DynamicCharacterAvatar Avatar;
+		//private CharacterAvatar Avatar;
 		public GameObject DnaEditor;
 		public Vector3 InitialPos;
 		public float YSpacing;
@@ -43,21 +43,21 @@ namespace UMA.CharacterSystem
 		foreach(GameObject go in CreatedObjects) UMAUtils.DestroySceneObject(go);
 		CreatedObjects.Clear();
 
-			UMADnaBase[] DNA = Avatar.GetAllDNA(); //Grabs dna value from avatar and puts them in an array
+			UMADnaBase[] DNA = Avatar.GetAllDNA();
 
-			List<DNAHolder> ValidDNA = new List<DNAHolder>(); //creates a list of the class DNAHolder
+			List<DNAHolder> ValidDNA = new List<DNAHolder>();
 
-			foreach (UMADnaBase d in DNA) //itterates through DNA
+			foreach (UMADnaBase d in DNA)
 			{
-				string[] names = d.Names; //creates an array of string names for DNA array
-				float[] values = d.Values; //creates an array of float values for the dna value
+				string[] names = d.Names;
+				float[] values = d.Values;
 
-				for (int i=0;i<names.Length;i++) 
+				for (int i=0;i<names.Length;i++)
 				{
-					string name = names[i]; //sets name string to current array index with value of i
-					if (IsThisCategory(name.ToLower())) //checks to see if this value matchs the defined string names set in editor Markers
+					string name = names[i];
+					if (IsThisCategory(name.ToLower()))
 					{
-						ValidDNA.Add(new DNAHolder(name,values[i],i,d)); //if check passes create a new DNAHolder with dna values
+						ValidDNA.Add(new DNAHolder(name,values[i],i,d));
 					}
 				}
 
@@ -67,11 +67,11 @@ namespace UMA.CharacterSystem
 			
 			foreach(DNAHolder dna in ValidDNA)
 			{
-				GameObject go = GameObject.Instantiate(DnaEditor); //instantiates dna editor prefab
-				go.transform.SetParent(ContentArea.transform); //sets parent to content area
+				GameObject go = GameObject.Instantiate(DnaEditor);
+				go.transform.SetParent(ContentArea.transform);
 				go.transform.localScale = new Vector3(1f, 1f, 1f);//Set the scale back to 1
-				DNAEditor de = go.GetComponentInChildren<DNAEditor>(); //grabs dna editor componenet from DnaEditor prefab
-			de.Initialize(dna.name.BreakupCamelCase(),dna.index,dna.dnaBase,Avatar,dna.value); 
+				DNAEditor de = go.GetComponentInChildren<DNAEditor>();
+			de.Initialize(dna.name.BreakupCamelCase(),dna.index,dna.dnaBase,Avatar,dna.value);
 				go.SetActive(true);
 				CreatedObjects.Add(go);
 			}

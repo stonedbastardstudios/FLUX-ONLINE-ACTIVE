@@ -1835,7 +1835,7 @@ namespace UMA.CharacterSystem
 				var recipeName = saveFilename != "" ? saveFilename : gameObject.name + "_DCSRecipe";
 				asset.SaveDCS(this, recipeName, saveOptionsToUse);
 #if UNITY_EDITOR
-				if (!saveAsAsset)
+                if (!saveAsAsset)
 					FileUtils.WriteAllText(filePath, asset.recipeString);
 				else
 				{
