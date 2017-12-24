@@ -21,6 +21,11 @@ public class SceneMaster : MonoBehaviour {
         }
 	}
 
+    public void NextScene() {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentScene + 1);
+    }
+
     public void BackButton() {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene - 1);

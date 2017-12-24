@@ -12,22 +12,24 @@ namespace UMA.CharacterSystem
         public GameObject[] createButtons;
 
         ProfileInfo profileInfo;
-        bool initialised = false;
+        bool initialised;
 
         // Use this for initialization
         void Start() {
             profileInfo = GameObject.Find("ProfileInfo").GetComponent<ProfileInfo>();
+            //LoadProfileSaves();
         }
 
         // Update is called once per frame
         void Update() {
-            if (Time.timeSinceLevelLoad > 1 && !initialised) {
+           if (Time.timeSinceLevelLoad > 1 && !initialised) {
                 LoadProfileSaves();
                 initialised = true;
-            }
+           }
         }
 
         public void LoadProfileSaves() {
+
             string dir = "C:/Users/Stonedmaster/Documents/My Games/Flux Online/Profiles/";
             string profileName = profileInfo.profileName;
             bool exists = Directory.Exists(dir);
@@ -35,7 +37,7 @@ namespace UMA.CharacterSystem
 
             foreach (DynamicCharacterAvatar avatar in avatars) {
 
-                //Load string from text file
+                // Load string from text file
                 string fileName = dir+profileName+avatar.name+".txt";
                 int avatarSlot = int.Parse(avatar.name.Substring(avatar.name.Length - 2, 1));
                 

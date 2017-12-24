@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class LogReg : MonoBehaviour {
 
+    public GameObject loginButton;
+    public GameObject loadingPanel;
+
     ProfileInfo profileInfo;
     string username;
     string password;
@@ -64,17 +67,11 @@ public class LogReg : MonoBehaviour {
 
                 // Send information to PlayerInfo class
                 profileInfo.profileName = u;
-                // profileInfo.profileEmail = e;
-
+             
                 // Clear all Variable fields
-                authenticated = "";
                 p = "";
-                gameObject.transform.Find("Username").GetComponent<InputField>().text = "";
-                gameObject.transform.Find("Password").GetComponent<InputField>().text = "";
-                gameObject.SetActive(false);
 
-                // Load to Character selection screen
-                SceneManager.LoadScene("Character_Selection");
+                LoadPanel();
             }
             else {
                 errorlog.text = "Incorrect Username or Password!";
@@ -82,6 +79,13 @@ public class LogReg : MonoBehaviour {
         } else {
             errorlog.text = "Cannot Enter Blank Fields!";
         }
+    }
+
+    void LoadPanel() {
+        loadingPanel.SetActive(true);
+        
+        // Load to Character selection screen
+        SceneManager.LoadScene("Character_Selection"); 
     }
 
     public void Register() {
